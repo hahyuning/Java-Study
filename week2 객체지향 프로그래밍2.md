@@ -4,6 +4,7 @@
 ## 1. 상속
 + 기존의 클래스를 재사용하여 새로운 클래스를 작성하는 것
 + 장점: 코드를 재사용함으로써 중복을 줄이고, 코드를 공통적으로 관리할 수 있어 유지보수에 용이하다.
++ 클래스 다이어그램에서 일반화 관계
 <br>
 
 + 키워드로 `extends`를 사용하며, 생성자와 초기화 블럭은 상속되지 않고 멤버(변수, 메서드)만 상속된다.
@@ -29,11 +30,6 @@
 + 장점: 코드를 이해하기 쉽고, 단위 클래스 별로 코드를 나누어 작성하기 때문에 관리하기가 수월하다.
 <br>
 
-> 상속 vs 포함관계
-> + 클래스 간의 관계가 부분집합인 경우　　　　　　　　-> 상속　　　　ex) 원 ⊂ 도형
-> + 클래스 간의 관계가 원소와 그 원소를 집합인 경우 　 -> 포함관계  　　   ex) 점 ∈ 원
-<br>
-
 ***
 ## 3. 제어자
 클래스, 변수, 메서드의 선언부에 함께 사용되어 부가적인 의미를 부여한다.
@@ -52,7 +48,34 @@
 + **private**
 	+ 멤버변수들은 주로 private로 접근을 제한하고, 외부에서는 메서드를 통해서만 멤버변수에 접근하게 하여 클래스 내부에 선언된 데이터를 보호한다.
 
-```enter code here```
+```java
+@Entity
+@Getter @Setter
+public class Order {
+
+    @Id @GeneratedValue
+    private Long id;
+
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "member_id")
+    private Member member;
+
+    // @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderItem> orderItems = new ArrayList<>();
+
+    // 생성 메서드: 주문 엔티티를 생성할 때 사용
+    // 주문 회원, 배송정보, 주문 상품의 정보를 받아서 실제 주문 엔티티를 생성
+    public static Order createOrder(Member member, OrderItem... orderItems) {
+        Order order = new Order();
+        order.setMember(member);
+	
+        for (OrderItem orderItem : orderItems) {
+            order.addOrderItem(orderItem);
+        }
+        return order;
+    }
+}
+```
 
 #### 3-2. 그 외
 + **final**: 변수에 사용되면 값을 변경할 수 없는 상수가 되며, 메서드에 사용하면 오버라이딩할 수 없게 되고, 클래스에 사용되면 자신을 확장하는 자손클래스를 정의하지 못하게 된다.
