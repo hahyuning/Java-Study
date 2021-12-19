@@ -86,8 +86,7 @@ public class Key {
 - 인스턴스 변수의 값만을 복사하기 때문에 참조타입의 인스턴스 변수가 있는 클래스는 완전한 인스턴스 복제가 이루어지지 않는다.
 - clone()을 사용하려면 복제할 클래스가 Cloneable 인터페이스를 구현한 뒤 clone()을 오버라이딩할 때 접근 제어자를 protectd에서 public으로 변경해야 하고, clone()을 호출하는 코드는 반드시 예외처리를 해주어야 한다.
 
-> 공변 반환타입
-> 오버라이딩할 때 조상 메서드의 반환타입을 자손 클래스의 타입으로 변경하는 것을 허용하는 것
+> 공변 반환타입:오버라이딩할 때 조상 메서드의 반환타입을 자손 클래스의 타입으로 변경하는 것을 허용하는 것
 
 > 얕은복사와 깊은복사
 > - 얕은복사: 원본과 복제본이 같은 객체를 공유하므로 원본을 변경하면 복사본도 영향을 받는다.
@@ -187,14 +186,45 @@ log
 ## 5. Wrapper 클래스
 - 기본형 변수를 객체로 다뤄야하는 경우 사용한다. (Boolean, Character, Byte, Short, Integer, Long, Float, Double)
 - 포장하고 있는 기본 타입 값은 외부에ㅐ서 변경할 수 없으며, 만약 내부의 값을 변경하고 싶다면 새로운 래퍼 객체를 만들어야 한다.
+<br>
 
-> 오토박싱과 언박싱
-> - 오토박싱: 컴파일러가 기본형 값을 래퍼 클래스의 객체로 자동 변환해주는 것
-> - 언박싱: 래퍼 클래스의 객체를 기본형 값으로 변환하는 것
+#### 박싱과 언박싱
+- 박싱: 기본 타입의 값을 래퍼 클래스 객체로 변환하는 것
+- 언박싱: 래퍼 클래스의 객체를 기본 타입의 값으로 변환하는 것
+
+> 오토 박싱과 오토 언박싱
+> - 오토 박싱: 래퍼 클래스 타입에 기본값이 대입될 경우에 발생
+> - 오토 언박싱: 기본 타입에 래퍼 클래스 객체가 대입되는 경우와 연산에서 발생
 
 ```java
-```
+// 오토 박싱
+Integer obj = 100;
 
+// 오토 언박싱
+Integer obj = new Integer(200);
+int value1 = obj;
+int value2 = obj + 100;
+```
+<br>
+
+#### 문자열을 기본 타입 값으로 변환
+- 래퍼 클래스의 주요 용도는 기본 타입의 값을 박싱해서 래퍼 클래스의 객체로 만드는 것이지만, 문자열을 기본 타입의 값으로 변환할 때에도 많이 사용된다.
+- 대부분의 래퍼 클래스에는 `parse + 기본 타입 이름`으로 되어 있는 static 메서드가 있으며, 이 메서드는 문자열을 매개변수로 받아 기본 타입 값으로 변환한다.
+<br>
+
+#### 값 비교
+- ==과 !=는 내부의 값을 비교하는 것이 아니라 래퍼 클래스의 참조를 비교하기 때문에, 래퍼 클래스 객체는 내부의 값을 비교하기 위해 ==과 !=를 사용하지 않는 것이 좋다.
+- 직접 내부 값을 언박싱해서 비교하거나, equals() 메서드로 내부 값을 비교하는 것이 좋다.
+- 래퍼 클래스의 equals() 메서드는 내부의 값을 비교하도록 재정의 되어 있다.
+
+```java
+Integer value1 = 100;
+Integer value2 = 100;
+
+// 결과: false
+System.out.pringln(value1 == value2);
+```
+<br>
 
 ## 5. Math 클래스
 - 수학 계산에 사용할 수 있는 메서드를 제공하며, 모두 static 메서드이므로 Math 클래스로 바로 사용 가능
@@ -228,4 +258,29 @@ log
 ## 3. Date 클래스
 - 날짜와 시간 정보를 저장하는 클래스 (특정 시점의 연도, 월, 일, 시간 정보 저장)
 - 객체 간에 날짜 정보를 주고받을 때 매개변수나 리턴 타입으로 주로 사용된다.
+- Date 객체이 toString() 메서드는 영문으로 된 날짜를 리턴하기 때문에 원하는 날짜 형식의 문자열을 얻고 싶으면 java.text 패키지의 SimpleDateFormat 클래스와 함께 사용하는 것이 좋다.
+```java
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 hh시 mm분 ss초")
 
+String strNow = sdf.format(new Date());
+
+// 결과 -> xxxx년 xx월 xx일 xx시 xx분 xx초
+System.out.println(strNow);
+```
+<br>
+
+## 4. Calendar 클래스
+- 운영체제의 날짜와 시간을 얻을 때 사용
+- 추상 클래스이므로 new 연산자를 사용해서 인스턴스를 생성할 수 없고, 정적 메소드인 getInstance*( 메서드를 이용하면 현재 운영체제에 설정되어 있는 시간대를 기준으로 한 Calendar 하위 객체를 얻을 수 있다.
+```java
+Calendar now = Calendar.getInstance();
+
+int year = now.get(Calendar.YEAR);
+int month = now.get(Calendar.MONTH) + 1
+int day = now.get(Calendar.DAY_OF_MONTH)
+int week = now.get(Calendar.DAY_OF_WEEK);
+int amPm = now.get(Calendar.AM_PM;
+int hour = now.get(Calendar.HOUR);
+int min = now.get(Calendar.MINUTE);
+int sec = now.get(Calendar.SECOND);
+```
