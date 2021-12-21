@@ -21,16 +21,14 @@
 public class Key {
 	public int num;
 	
-	publc Key(int num);
+	public Key(int num);
 		this.num = num;
 	
 	// num 필드값이 같으면 true 리턴
 	@Oberride
-	public boolean equals(Object obj) {
-		if (obj instancdof Member) {
-			Member member = (Member) obj;
-			if (id.equals(member.id)) {
-				return true;
+	public boolean equals(int num) {
+		if (this.num == num) {
+			return true;
 			}
 		}
 		return false;
