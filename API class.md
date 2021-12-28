@@ -102,7 +102,7 @@ public class Key {
 - int 값을 매개변수로 지정하는데, 이 값을 종료 상태값이라고 한다. (일반적으로 정상 종료일 경우 0)
 
 > System.exit(0): 정상 종료
-> System.exit(-1):
+> System.exit(-1)
 <br>
 
 #### currentTimeMillies(), nanoTime()
@@ -134,6 +134,8 @@ public class Key {
 - 문자열 리터럴은 String 객체로 자동 생성되지만, 다양한 생성자를 이용해서 직접 String 객체를 생성할 수 있다.
 - 파일의 내용을 읽거나, 네트워크를 통해 받은 데이터는 보통 byte[] 배열이므로 이것을 문자열로 변환해야 한다.
 - 바이트 배열을 문자열로 바꾸는 방법
+<br>
+
 ```java
 // 배열 전체를 String 객체로 생성
 String str = new String(byte[] bytes);
@@ -163,9 +165,6 @@ String str = new String(byte[] bytes, int offset, int length, String charsetName
 <br>
 
 > 참고: 한번 생성된 String 인스턴스가 갖고 있는 문자열은 읽어올 수만 있고 변경할 수 없기 때문에 +를 사용해서 문자열을 결합하면 매 연산마다 새로운 문자열을 가진 String 인스턴스가 생성되어 메모리 공간을 차지하게 되므로 가능한 결합횟수를 줄이는 것이 좋다.
-```java
-log
-```
 <br>
 
 #### StringBuffer
@@ -227,7 +226,6 @@ System.out.pringln(value1 == value2);
 ## 5. Math 클래스
 - 수학 계산에 사용할 수 있는 메서드를 제공하며, 모두 static 메서드이므로 Math 클래스로 바로 사용 가능
 - abs(), ceil(), floor(), max(), min(), random(), rint(), round()
-<br>
 
 #### round()
 - 항상 소수점 첫째자리에서 반올림해서 정수값을 결과로 반환한다.
@@ -252,3 +250,166 @@ System.out.pringln(value1 == value2);
 	- 정규식으로 비교할 대상을 매개변수로 Pattern 클래스의 matcher(CharSequence input)을 호출해서  Matcher 인스턴스를 얻는다.
 	- Matcher 인스턴스에 matches()를 호출해서 정규식에 부합하는지 확인한다.
 <br>
+
+# java.text 패키지
+
+## 1. DecimalFormat
+- 숫자를 형식화하는데 사용되는 클래스
+- 숫자 데이터를 정수, 부동소수점, 금액 등의 다양한 형식으로 표현할 수 있고, 반대로 일정한 형식의 텍스트 데이터를 숫자로 변환하는 것도 가능
+- 원하는 출력형식의 패턴을 작성하여 `DecimalFormat` 인스턴스를 생성한 다음, 출력하고자 하는 문자열로 `format` 메서드를 호출
+- `NumberFormat`에 정의된 `parse` 메서드를 사용하면 기호와 문자가 포함된 문자열을 숫자로 변환할 수 있다.
+
+#### 패턴에 사용되는 기호
+| 기호 | 의미 |
+|--|--|
+| 0 | 10진수(값이 없을 때는 0) |
+| # | 10진수 |
+| . | 소수점 |
+| - | 음수부호 |
+| , | 단위 구분자 |
+| E | 지수기호 |
+| ; | 패턴 구분자 |
+| % | 퍼센트 |
+<br>
+
+## 2. SimpleDateFormat
+- 원하는 형태로 날짜를 출력할 수 있다.
+- 원하는 출력형식의 패턴을 작성하여 `SimpleDateFormat` 인스턴스를 생성한 다음, 출력하고자 하는 `Date` 인스턴스를 가지고 `format(Date d)` 를 호출
+
+```java
+Date today = new Date();
+SimpleDateFormat df = new SimpleDateForamt("yyyy-MM-dd");
+
+String result = df.format(today);
+```
+<br>
+
+# java.time 패키지
+| 패키지 | 설명 |
+|--|--|
+| java.time | 날짜와 시간을 다루는데 필요한 핵심 클래스 제공 |
+| java.time.chrono | 표준이 아닌 달력 시스템을 위한 클래스 제공 |
+| java.time.format | 날짜와 시간을 파싱하고, 형식화하기 위한 클래스 제공 |
+| java.time.temporal | 날짜와 시간의 필드와 단위를 위한 클래스 제공 |
+| java.time.zone | 시간대와 관련된 클래스 제공 |
+
+- 위의 클래스들은 불변이기 때문에, 날짜나 시간을 변경하는 메서드들은 기존의 객체를 변경하는 대신 항상 변경된 새로운 객체를 반환한다.
+- 멀티 쓰레드 환경에서는 동시에 여러 쓰레드가 같은 객체에 접근할 수 있기 때문에, 변경 가능한 객체는 데이터가 잘못될 가능성이 있다. (thread-safe 하지 않다.)
+<br>
+
+## 1. 날짜와 시간 클래스
+- `LocalDate`: 날짜 정보만 제공
+- `LocalTime`: 시간 정보만 제공
+- `LocalDateTime`: 날짜와 시간 정보를 모두 제공
+- `ZonedDateTime`: 특정 타임존의 날짜와 시간을 제공 (표준 시간이 같은 지역을 묶어서 시간대 규칙 집합을 정의하고, 지역 ID `{지역}/{도시}` 로 특정 ZoneId를 구분)
+- `Instant`: 틀정 시점의 타임 스탬프 (특정한 두 시점 간의 우선순위를 따질 때 사용하며 나노초의 정밀도 제공, UTC(협정세계시) 기준)
+<br>
+
+![image](https://user-images.githubusercontent.com/60869749/147530010-3798de31-b9cf-4529-8368-aa265ae75cdc.png)
+
+> 모두 불변 객체이고 Thread-Safe 하다.
+<br>
+
+#### 객체 생성
+- `now()`는 현재 날짜와 시간을 저장하는 객체를 생성 
+
+```java
+LocatDate date = LocalDate.now(); //2021-12-28
+LocatTime time = LocalTime.now(); // 21:54:01.875
+LocatDateTime dateTime = LocalDateTime.now(); //2021-12-28T21:54:01.875
+ZonedDateTime dateTimeInKr = ZonedDateTime.now(); //2021-12-28T21:54:01.875+09:00[Asia/Seoul]
+```
+
+- `of()`는 해당 필드의 값을 순서대로 지정
+
+```java
+LocatDate date = LocalDate.of(2021, 12, 28);
+LocatTime time = LocalTime.of(23, 59, 59);
+
+LocatDateTime dateTime = LocalDateTime.of(date, time);
+ZonedDateTime dateTimeInKr = ZonedDateTime.of(dateTime, ZoneId.of("Asia/Seoul"));
+```
+<br>
+
+#### 필드와 메서드 [Java API 문서 참조](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html)
+
+> 타임스탬프: 날짜와 시간을 초단위로 표현한 값으로, 날짜와 시간을 하나의 정수로 표현할 수 있으므로 날짜와 시간의 차이를 계산하거나 순서를 비교하는데 유리해서 데이터베이스에 많이 사용
+> > 데이터베이스의 DATETiME과 TIMESTAMP
+> > - 공통점: 날짜와 시간을 모두 포함할 때 사용하는 타입 (`YYYY-MM-DD HH:MM:SS` 형식)
+> > - 차이점
+> > 	- DATETIME: 문자형, 데이터값을 입력 해줘야만 날짜가 입력된다. 
+> > 	- TIMESTAMP: 숫자형, 데이터값을 입력해주지 않고 저장시에 자동으로 현재 날짜가 입력된다. 
+<br>
+
+## 2. TemporalAdjuster
+- 자주 쓰일만한 날짜 계산들을 대신 해주는 메서드를 정의해 놓은 클래스
+<br>
+
+![image](https://user-images.githubusercontent.com/60869749/147530276-6f8028e4-68f8-4572-be49-5a82a9984219.png)
+
+- 정의된 메서드 이외에 필요하면 자주 사용되는 날짜를 계산해주는 메서드를 직접 만들 수도 있다. (TemporalAdjuster 인터페이스의 adjustInto() 오버라이드하거나 람다 사용)
+```java
+public class CustomTemporalAdjuster implements TemporalAdjuster {
+    @Override
+    public Temporal adjustInto(Temporal temporal) {
+        return ...
+    }
+}
+```
+
+```java
+LocalDateTime now = LocalDateTime.now();
+Temproal result = now.with(new CustomTemporalAdjuster());
+```
+<br>
+
+## 3. Period, Duration
+- 날짜와 시간의 간격을 표현하기 위한 클래스
+- 두 날짜간의 차이를 표현 (날짜 - 날짜 ) [Period](https://docs.oracle.com/javase/8/docs/api/java/time/Period.html)
+- 시간의 차이를 표현 (시간 - 시간) [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html)
+<br>
+
+![image](https://user-images.githubusercontent.com/60869749/147530235-7060c613-2115-4ef1-a2de-37b5effa3e4b.png)
+<br>
+
+
+## 4. 파싱과 포맷 
+날짜와 시간 클래스는 문자열을 파싱해서 날짜와 시간을 생성하는 `parse()` 메서드와, 반대로 날짜와 시간을 포매팅도니 문자열로 반환하는 `format()` 메서드를 제공
+
+#### parse()
+- 기본적으로 ISO_LOCAL_DATE 포매터를 사용해서 문자열을 파싱 (`"yyyy-MM-dd" 형식`)
+- DateTimeFormatter 에 표준화된 포매터를 사용해서 파싱할 수도 있고, OfPattern()을 사용해서 다른 문자열로도 파싱 가능
+
+```java
+public static LocalDate parse(CharSequence text) {
+    return parse(text, DateTimeFormatter.ISO_LOCAL_DATE);
+}
+
+public static LocalDate parse(CharSequence text, DateTimeFormatter formatter) {
+    Objects.requireNonNull(formatter, "formatter");
+    return formatter.parse(text, LocalDate::from);
+}
+```
+
+```java
+LocalDate parse = LocalDate.parse("2021-12-28");
+
+LocalDate parse1 = LocalDate.parse("2021-12-28", DateTimeFormatter.ISO_LOCAL_DATE);
+
+LocalDate parse2 = LocalDate.parse("2021-12-28", DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+```
+<br>
+
+#### format(): 날짜 객체를 파라미터에 넘어온 형식대로 문자열을 반환
+```java
+@Override
+public String format(DateTimeFormatter formatter) {
+    Objects.requireNonNull(formatter, "formatter");
+    return formatter.format(this);
+}
+```
+
+```java
+LocalDateTime now = LocalDateTime.now();
+String format = now.format(DateTimeFormatter.ISO_LOCAL_DATE);
+```
