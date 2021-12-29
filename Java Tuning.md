@@ -1,7 +1,7 @@
 #### 목차
-- 디자인 패턴(#디자인-패턴)
-- 프로그램 속도측정
-- String
+- [디자인 패턴](#디자인-패턴)
+- [프로그램 속도측정](#프로그램-속도측정)
+- [String vs StringBuffer vs StringBuilder](#string-vs-stringbuffer-vs-stringbuilder)
 - Collection
 - 반복문
 - static
