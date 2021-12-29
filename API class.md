@@ -129,7 +129,7 @@ public class Key {
 
 ## 4. String 클래스
 - 문자열을 저장하기 위해 문자열 배열 참조변수를 인스턴스 변수로 정의해 놓은 클래스
-- [참고](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning.md)
+- [참고](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning.md#string-vs-stringbuffer-vs-stringbuilder)
 
 #### 생성자
 - 문자열 리터럴은 String 객체로 자동 생성되지만, 다양한 생성자를 이용해서 직접 String 객체를 생성할 수 있다.
