@@ -67,7 +67,7 @@
 - 성능과 가장 밀접한 패턴은 Service Locator 패턴
 - 성능에 직접적으로 많은 영향을 미치지는 않지만, Transfer Object는 애플리케이션 개발 시 반드시 사용해야 한다.
 
-> 참고:
+> [참고](https://github.com/hahyuning/Servlet)
 
 <br><br>
 
