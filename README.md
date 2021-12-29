@@ -22,4 +22,4 @@
 
 <br><br>
 
-## [자바 성능 튜닝 이야기 정리](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning.md#string-vs-stringbuffer-vs-stringbuilder)
+## [자바 성능 튜닝 이야기 정리](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning.md)
