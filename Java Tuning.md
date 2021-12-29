@@ -123,6 +123,7 @@
 > CharSequence 인터페이스
 > - StringBuffer, StringBuilder는 CharSequence 인터페이스를 구현한 클래스로, StringBuffer나 StringBuilder로 생성한 객체를 전달할 때 사용한다.
 > - StringBuffer나 StringBuilder로 값을 만든 후 굳이 toString을 수행하여 필요없는 객체를 만들어서 넘겨주기보다는 CharSequence로 받아서 처리하는 것이 메모리 효율에 더 좋다.
+
 <br><br>
 
 ## static
