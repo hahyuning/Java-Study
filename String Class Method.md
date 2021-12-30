@@ -1,4 +1,4 @@
-## 연산 메서드
+## 기본 연산
 
 ## concat(String str)
 - 대상 문자열 뒤에 매개변수 str 문자열을 덧붙인 새로운 문자열 반환
@@ -40,7 +40,7 @@
 
 <br>
 
-# 비교 메서드
+# 문자열 
 
 ## equals(Object obj)
 - 대상 문자열이 매개변수 obj와 같은지 비교해서 boolean 값 반환
@@ -72,7 +72,7 @@
 
 <br>
 
-# 위치 메서드
+# 특정 문자 조회
 
 ## indexOf(char chr)/indexOf(String str)
 - 주어진 문자/문자열이 문자열에 존재하는지 확인하여 위치 반환 (없으면 -1 반환)
@@ -100,7 +100,8 @@
 
 <br>
 
-# 구분 메서드
+# 구분자
+
 ## split(String regex)
 - 문자열을 지정된 regex로 나누어 문자열 배열에 담아 반환
 ```java
@@ -109,9 +110,6 @@ String[] arr = animals.split(":");
 // 결과 : arr = {"hh", "mm", "ss"};
 ```
 
-<br>
-
-# java8 추가
 ## join(CharSequence delimiter, CharSequence... elements)
 - 여러 문자열 사이에 구분자를 넣어서 결합하는 메서드
 ```java
@@ -119,4 +117,26 @@ List<String> list = Arrays.asList("hi", "my", "name", "is", "hahyun");
 String result = String.join("! ", list);
 System.out.println(result);
 // 결과: hi! my! name! is! hahyun
+```
+
+<br>
+
+# 공백 처리
+
+## trim()
+- 문자열 앞 뒤에 있는 공백 제거
+```java
+String trimStr = " abc def   ";
+trimStr = trimStr.trim();
+System.out.println(trimStr);
+// 결과: "abc def"
+```
+
+## replaceAll()
+- 문자열 중간 사이의 공백 제거
+```java
+String replaceStr = " abc def  ";
+replaceStr = replaceStr.replaceAll(" ", "");
+System.out.println(replaceStr);
+// 결과: "abcdef"
 ```
