@@ -1,5 +1,5 @@
 목차
-- [java.lang 패키지](https://github.com/hahyuning/Java-Study/edit/main/API%20class.md#java.lang-패키지)
+- [java.lang 패키지](https://github.com/hahyuning/Java-Study/blob/main/API%20class.md#java.lang-패키지)
 	- Object 클래스
 	- System 클래스
 	- Class 클래스
