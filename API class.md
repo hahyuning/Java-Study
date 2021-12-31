@@ -1,18 +1,18 @@
 목차
-- [java.lang 패키지](https://github.com/hahyuning/Java-Study/blob/main/API%20class.md#java.lang-패키지)
+- [java.lang 패키지](#java.lang-패키지)
 	- Object 클래스
 	- System 클래스
 	- Class 클래스
 	- String 클래스
 	- Wrapper 클래스
 	- Math 클래스
-- java.util 패키지
+- [java.util 패키지](#java.util-패키지)
 	- Objects 클래스
 	- 정규식
-- java.text 패키지
+- [java.text 패키지](#java.text-패키지)
 	- DecimalFormat 클래스
 	- SimpleDateFormat 클래스
-- java.time 패키지
+- [java.time 패키지](#java.time-패키지)
 	- LocalDate, LocalTime, LocalDateTime, ZonedDate, Instant 클래스
 	- TemporalAdjusters 클래스
 	- Period, Duration 클래스
