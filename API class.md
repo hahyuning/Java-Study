@@ -1,11 +1,5 @@
 목차
-- [java.lang 패키지](#1.-java.lang-패키지)
-	- Object 클래스
-	- System 클래스
-	- Class 클래스
-	- String 클래스
-	- Wrapper 클래스
-	- Math 클래스
+- [java.lang 패키지](#java.lang-패키지)
 - [java.util 패키지](#java.util-패키지)
 	- Objects 클래스
 	- 정규식
@@ -20,8 +14,8 @@
 
 <br>
 
-# 1. java.lang 패키지
-## Object 클래스
+# java.lang 패키지
+## 1. Object 클래스
 #### equals(Object 0)
 - 매개변수로 객체의 참조변수를 받아서 두 참조변수에 저장된 주소값이 같은지 비교한 결과를 boolean으로 반환한다.<br>
 (==과 동일한 결과)
