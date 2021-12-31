@@ -1,3 +1,23 @@
+목차
+- [java.lang 패키지](https://github.com/hahyuning/Java-Study/edit/main/API%20class.md#java.lang-패키지)
+	- Object 클래스
+	- System 클래스
+	- Class 클래스
+	- String 클래스
+	- Wrapper 클래스
+	- Math 클래스
+- java.util 패키지
+	- Objects 클래스
+	- 정규식
+- java.text 패키지
+	- DecimalFormat 클래스
+	- SimpleDateFormat 클래스
+- java.time 패키지
+	- LocalDate, LocalTime, LocalDateTime, ZonedDate, Instant 클래스
+	- TemporalAdjusters 클래스
+	- Period, Duration 클래스
+	- 파싱과 포맷
+
 # java.lang 패키지
 ## 1. Object 클래스
 #### equals(Object 0)
@@ -346,7 +366,7 @@ ZonedDateTime dateTimeInKr = ZonedDateTime.of(dateTime, ZoneId.of("Asia/Seoul"))
 > > 	- TIMESTAMP: 숫자형, 데이터값을 입력해주지 않고 저장시에 자동으로 현재 날짜가 입력된다. 
 <br>
 
-## 2. TemporalAdjuster
+## 2. TemporalAdjusters
 - 자주 쓰일만한 날짜 계산들을 대신 해주는 메서드를 정의해 놓은 클래스
 <br>
 
