@@ -101,13 +101,15 @@ public class Key {
 - 현재 실행하고 있는 프로세스를 강제 종료시킨다.
 - int 값을 매개변수로 지정하는데, 이 값을 종료 상태값이라고 한다. (일반적으로 정상 종료일 경우 0)
 
-> System.exit(0): 정상 종료
-> System.exit(-1)
+> System.exit(0): 정상 종료<br>
+> System.exit(-1): 비정상 종료
 <br>
 
 #### currentTimeMillies(), nanoTime()
 - 컴퓨터의 시계로부터 현재 시간을 읽어서 밀리세컨드 단위와 나노세컨드 단위의 long 값을 리턴한다.
 - 주로 프로그램의 실행 소요 시간 측정에 사용되는데, 프로그램 시작 시 시각을 읽고 프로그램이 끝날 때 시간을 읽어서 프로그램 실행 소요 시간을 구한다.
+
+> 참고: [자바 성능 튜닝 - 프로그램 속도 측정](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning.md#%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%86%8D%EB%8F%84%EC%B8%A1%EC%A0%95#프로그램-속도측정)
 <br>
 
 ## 3. Class 클래스
@@ -129,7 +131,6 @@ public class Key {
 
 ## 4. String 클래스
 - 문자열을 저장하기 위해 문자열 배열 참조변수를 인스턴스 변수로 정의해 놓은 클래스
-- [참고](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning.md#string-vs-stringbuffer-vs-stringbuilder)
 
 #### 생성자
 - 문자열 리터럴은 String 객체로 자동 생성되지만, 다양한 생성자를 이용해서 직접 String 객체를 생성할 수 있다.
@@ -179,6 +180,9 @@ String str = new String(byte[] bytes, int offset, int length, String charsetName
 #### StringBuilder
 - StringBuffer는 멀티쓰레드에 thread safe 하도록 동기화되어 있어, 성능이 떨어진다.
 - StringBuffer에서 쓰레드의 동기화만 뺀 것이 StringBuilder
+
+> 참고: [자바 성능 튜닝 - String vs StringBuffer vs StringBuider](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning.md#string-vs-stringbuffer-vs-stringbuilder)
+
 <br>
 
 ## 5. Wrapper 클래스
