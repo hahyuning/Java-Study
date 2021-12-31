@@ -1,20 +1,12 @@
 목차
 - [java.lang 패키지](#java.lang-패키지)
 - [java.util 패키지](#java.util-패키지)
-	- Objects 클래스
-	- 정규식
 - [java.text 패키지](#java.text-패키지)
-	- DecimalFormat 클래스
-	- SimpleDateFormat 클래스
 - [java.time 패키지](#java.time-패키지)
-	- LocalDate, LocalTime, LocalDateTime, ZonedDate, Instant 클래스
-	- TemporalAdjusters 클래스
-	- Period, Duration 클래스
-	- 파싱과 포맷
 
 <br>
 
-# java.lang 패키지
+## java.lang 패키지
 ## 1. Object 클래스
 #### equals(Object 0)
 - 매개변수로 객체의 참조변수를 받아서 두 참조변수에 저장된 주소값이 같은지 비교한 결과를 boolean으로 반환한다.<br>
