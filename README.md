@@ -15,19 +15,19 @@
 
 #### 목차
 - [X] week1 (12/23) 오리엔테이션
-- [X] [week2 (12/07) 객체지향 프로그래밍](https://github.com/hahyuning/java-study/blob/main/OOP.md)
-- [X] [week3 (12/14) 예외처리](https://github.com/hahyuning/java-study/blob/main/Execption.md)
-- [X] [week4 (12/21) java.lang 패키지와 유용한 클래스](https://github.com/hahyuning/java-study/blob/main/API%20class.md)
-- [X] [week5 (12/28) 날짜와 시간 & 형식화 date, time and formatting](https://github.com/hahyuning/java-study/blob/main/API%20class.md)
+- [X] [week2 (12/07) 객체지향 프로그래밍](https://github.com/hahyuning/Java-Study/blob/main/Java%20Study/1.%20OOP.md)
+- [X] [week3 (12/14) 예외처리](https://github.com/hahyuning/Java-Study/blob/main/Java%20Study/2.%20Execption.md)
+- [X] [week4 (12/21) java.lang 패키지와 유용한 클래스](https://github.com/hahyuning/Java-Study/blob/main/Java%20Study/3.%20API%20class.md)
+- [X] [week5 (12/28) 날짜와 시간 & 형식화 date, time and formatting](https://github.com/hahyuning/Java-Study/blob/main/Java%20Study/3.%20API%20class.md)
 
 <br><br>
 
-## [자바 성능 튜닝 이야기 정리](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning.md)
+## 자바 성능 튜닝 이야기 정리
 #### 목차
-- [디자인 패턴](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/Design%20Pattern.md)
-- [프로그램 속도측정]
-- [String vs StringBuffer vs StringBuilder]
-- Collection
+- [디자인 패턴](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/1.%20Design%20Pattern.md)
+- [프로그램 속도측정](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/2.%20Program%20Speed.md)
+- [String vs StringBuffer vs StringBuilder](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/3.%20String.md)
+- [Collection]
 - [static]
 - 클래스 정보
 - synchronized
