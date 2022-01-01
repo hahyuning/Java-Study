@@ -28,8 +28,8 @@
 - [프로그램 속도측정](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/2.%20Program%20Speed.md)
 - [String vs StringBuffer vs StringBuilder](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/3.%20String.md)
 - [Collection](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/4.%20Collection.md)
-- [static]
-- 클래스 정보
+- [static](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/5.%20static.md)
+- [클래스 정보](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/6.%20Class%20info.md)
 - synchronized
 - IO
 - 로그
