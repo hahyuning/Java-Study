@@ -23,21 +23,7 @@
 <br><br>
 
 ## 자바 성능 튜닝 이야기 정리
-#### 목차
-- 디자인 패턴
-- 프로그램 속도측정
-- String vs StringBuffer vs StringBuilder
-- Collection
-- static
-- 클래스 정보
-- synchronized
-- IO
-- 로그
-- JSP와 서블릿
-- DB
-- XML과 JSON
-- 서버 세팅
-- 안드로이드 개발
-- JVM
-- GC
-- JMX
+
+<br><br>
+
+## 자료구조 구현
