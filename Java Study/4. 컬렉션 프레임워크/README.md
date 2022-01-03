@@ -107,3 +107,78 @@ class Node {
 
 ### 2-2. 더블 써큘러 링크드 리스트
 - 더블 링크드 리스트의 접근성을 향상시킨 것으로, 첫 번째 요소와 마지막 요소를 서로 연결시킨 것
+
+<br>
+
+## 3. Stack과 Queue
+
+### 3-1. Stack
+- 마지막에 저장한 데이터를 가장 먼저 꺼내는 LIFO 구조
+- 순차적으로 데이터를 추가하고 삭제하므로, ArrayList와 같은 배열 기반의 컬렉션 클래스로 구현
+- 자바에서는 스택을 Stack 클래스로 구현하여 제공
+- 활용: 수식계산, 수식괄호검사, 워드프로세서의 undo/redo, 웹브라으라우저의 뒤로/앞으로, 함수호출 등
+
+### 3-2. Queue
+- 처음에 저장한 데이터를 가장 먼저 꺼내는 FIFO 구조
+- 데이터를 꺼낼 때 항상 첫 번째 저장된 데이터를 삭제하므로, LinkedList로 구현
+- 큐는 Queue 인터페이스를 구현한 클래스 중 하나를 선택해서 사용
+- 활용: 최근사용문서, 인쇄작업 대기목록, 버퍼 등
+
+### 3-3. PriorityQueue
+- Queue 인터페이스의 구현체 중 하나로, 저장한 순서에 관계없이 우선순위가 높은 것부터 꺼낸다.
+- null은 저장할 수 없다.
+- 저장공간으로 배열을 사용하며, 각 요소를 힙이라는 자료구조으 ㅣ형태로 저장한다.
+
+### 3-4. Deque
+- 한 쪽 끝으로만 추가/삭제할 수 있는 Queue와 달리, 양쪽 끝에 추가/삭제가 가능하다.
+- Deque의 조상은 Queue이며, 구현체로는 ArrayDeque와 LinkedList 등이 있다.
+- 덱은 스택과 큐를 하나로 합쳐놓은 것과 같으며, 스택으로 사용할 수도 있고 큐로 사용할 수도 있다.
+
+
+<br>
+
+## 4. Iterator
+- 컬렉션에 저장된 요소에 저근하는데 사용되는 인터페이스
+- Collection 인터페이스에 Iterator(Iterator를 구현한 클래스의 인스턴스)를 반환하는 iterator()를 정의해 놓았다.
+- 컬렉션 클래스에 대해 iterator()를 호출하여 Iterator를 얻은 다음 반복문을 사용해서 컬렉션 클래스의 요소를 읽어올 수 있다.
+- Iterator를 사용해서 컬렉션의 요소를 읽어오는 방법을 표준화함으로써, 코드의 일관성을 유지하여 재사용성을 극대화할 수 있다.
+
+<br>
+
+|메서드|설명|
+|---|---|
+|boolean hasNext()|읽어올 요소가 남아있는지 확인|
+|Object next()|다음 요소를 읽어오는 메서드로, 호출하기 전 hasNext()를 호출해서 읽어올 요소가 있는지 확인하는 것이 안전|
+|void remove()|next()로 읽어온 요소를 삭제하며, **next()를 호출한 다음에 remove()를 호출해야 한다.**|
+
+```java
+List list = new ArrayList();
+Iterator iter = list.iterator();
+
+while (it.hasNext()) {
+    System.out.println(it.next());
+}
+```
+
+<br>
+
+- Map 인터페이스를 구현한 컬렉션 클래스는 iterator()를 직접 호출할 수 없고, keySet()이나 entrySet()과 같은 메서드를 통해 키와 값을 각각 따로 Set 형태로 얻어온 후에
+다시 iterator()를 호출해야 Iterator을 얻을 수 있다.
+- Set 클래스들은 각 요소간의 순서가 유지되지 않기 때문에 Iterator를 통해서 저장된 요소들을 읽어와도 처음에 저장된 순서와 같지 않다.
+```java
+Map map = new HashMap();
+
+Iterator iter = map.entrySet().iterator();
+```
+
+<br>
+
+#### ListIterator
+- Iterator를 상속받아서 기능을 추가한 것으로, 양방향으로 이동이 가능하다.
+- ArrayList나 LinkedList와 같이 List 인터페이스를 구현한 컬렉션에서만 사용 가능
+- 이동하기 전에 반드시 hasNext()나 hasPrevious()를 호출해서 이동할 수 있는지 확인해야 한다.
+
+<br>
+
+## 5. Arrays
+배열을 다루는데 유용한 메서드가 정의되어 있는 클래스
