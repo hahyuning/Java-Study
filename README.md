@@ -8,28 +8,28 @@
 <br><br>
 
 ## 자바의 정석 완독 스터디
-#### 기간: 2021.12.23 ~ 2022.02.08 (예정)
+#### 기간: 2021.12.23 ~ 2022.02.08
 #### 참여인원: 5명
 #### 사용교재: 자바의 정석
 <br>
 
 #### 목차
 - [X] week1 (12/23) 오리엔테이션
-- [X] [week2 (12/07) 객체지향 프로그래밍](https://github.com/hahyuning/Java-Study/blob/main/Java%20Study/1.%20OOP.md)
-- [X] [week3 (12/14) 예외처리](https://github.com/hahyuning/Java-Study/blob/main/Java%20Study/2.%20Execption.md)
-- [X] [week4 (12/21) java.lang 패키지와 유용한 클래스](https://github.com/hahyuning/Java-Study/blob/main/Java%20Study/3.%20API%20class.md)
-- [X] [week5 (12/28) 날짜와 시간 & 형식화 date, time and formatting](https://github.com/hahyuning/Java-Study/blob/main/Java%20Study/3.%20API%20class.md)
+- [X] week2 (12/07) 객체지향 프로그래밍
+- [X] week3 (12/14) 예외처리
+- [X] week4 (12/21) java.lang 패키지와 유용한 클래스
+- [X] week5 (12/28) 날짜와 시간 & 형식화 date, time and formatting
 
 <br><br>
 
 ## 자바 성능 튜닝 이야기 정리
 #### 목차
-- [디자인 패턴](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/1.%20Design%20Pattern.md)
-- [프로그램 속도측정](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/2.%20Program%20Speed.md)
-- [String vs StringBuffer vs StringBuilder](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/3.%20String.md)
-- [Collection](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/4.%20Collection.md)
-- [static](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/5.%20static.md)
-- [클래스 정보](https://github.com/hahyuning/Java-Study/blob/main/Java%20Tuning/6.%20Class%20info.md)
+- 디자인 패턴
+- 프로그램 속도측정
+- String vs StringBuffer vs StringBuilder
+- Collection
+- static
+- 클래스 정보
 - synchronized
 - IO
 - 로그
