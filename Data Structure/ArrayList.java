@@ -119,31 +119,6 @@ public class ArrayList<E> implements List<E> {
     }
 
     @Override
-    public boolean containsAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends E> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(int index, Collection<? extends E> c) {
-        return false;
-    }
-
-    @Override
-    public boolean removeAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean retainAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
     public int indexOf(Object value) {
         for (int i = 0; i < size; i++) {
             if (arr[i].equals(value)) {
@@ -163,35 +138,6 @@ public class ArrayList<E> implements List<E> {
         return -1;
     }
 
-    @Override
-    public ListIterator<E> listIterator() {
-        return null;
-    }
-
-    @Override
-    public ListIterator<E> listIterator(int index) {
-        return null;
-    }
-
-    @Override
-    public List<E> subList(int fromIndex, int toIndex) {
-        return null;
-    }
-
-    @Override
-    public void sort(Comparator c) {
-        List.super.sort(c);
-    }
-
-
-    public void clear() {
-        for (int i = 0; i < size; i++) {
-            arr[i] = null;
-        }
-        size = 0;
-        resize();
-    }
-
     public Object[] toArray() {
         Object[] result = new Object[size];
         System.arraycopy(arr, 0, result, 0, size);
@@ -206,24 +152,77 @@ public class ArrayList<E> implements List<E> {
         }
 
         System.arraycopy(arr, 0, a, 0, size);
-        return a;
-    }
+        return a;}
 
-    public boolean isEmpty() {
-        return size == 0;
-    }
 
     @Override
     public boolean contains(Object value) {
         return indexOf(value) >= 0;
     }
 
-    @Override
-    public Iterator<E> iterator() {
-        return null;
+    public void clear() {
+        for (int i = 0; i < size; i++) {
+            arr[i] = null;
+        }
+        size = 0;
+        resize();
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
     }
 
     public int size() {
         return size;
+    }
+
+    @Override
+    public void sort(Comparator c) {
+        List.super.sort(c);
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean addAll(int index, Collection<? extends E> c) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ListIterator<E> listIterator() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ListIterator<E> listIterator(int index) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<E> subList(int fromIndex, int toIndex) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        throw new UnsupportedOperationException();
     }
 }
