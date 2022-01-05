@@ -27,7 +27,7 @@ public class ArrayList<E> implements List<E> {
             return;
         }
 
-        if (size == capacity) {
+        if (size >= capacity * 0.75) {
             Object[] tmp = new Object[2 * capacity];
             System.arraycopy(arr, 0, tmp, 0, size);
             arr = tmp;
@@ -71,6 +71,7 @@ public class ArrayList<E> implements List<E> {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public E get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
@@ -89,6 +90,7 @@ public class ArrayList<E> implements List<E> {
         return value;
     }
 
+    @SuppressWarnings("unchecked")
     public E remove(int index) {
         Object oldObj = null;
 
@@ -146,13 +148,15 @@ public class ArrayList<E> implements List<E> {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public <T> T[] toArray(T[] a) {
         if (a.length < size) {
             return (T[]) Arrays.copyOf(arr, size, a.getClass());
         }
 
         System.arraycopy(arr, 0, a, 0, size);
-        return a;}
+        return a;
+    }
 
 
     @Override

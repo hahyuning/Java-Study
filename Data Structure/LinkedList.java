@@ -1,5 +1,3 @@
-import org.w3c.dom.Node;
-
 import java.lang.reflect.Array;
 import java.util.*;
 
@@ -268,6 +266,7 @@ public class LinkedList<E> implements List<E> {
 
     // 객체 클래스로 상속관계에 있는 타입이거나 데이터 타입을 유연하게 캐스팅 가능
     @Override
+    @SuppressWarnings("unchecked")
     public <T> T[] toArray(T[] a) {
         if (a.length < size) {
             a = (T[]) Array.newInstance(a.getClass().getComponentType(), size);
