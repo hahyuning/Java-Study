@@ -20,6 +20,8 @@
 - [X] week3 (12/14) 예외처리
 - [X] week4 (12/21) java.lang 패키지와 유용한 클래스
 - [X] week5 (12/28) 날짜와 시간 & 형식화 date, time and formatting
+- [X] week6 (1/4) 컬렉션 프레임워크
+- [X] week5 (1/11) 제네릭, 열거형, 어노테이션
 
 <br><br>
 
