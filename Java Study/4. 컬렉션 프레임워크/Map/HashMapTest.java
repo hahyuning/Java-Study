@@ -4,7 +4,7 @@ import java.util.*;
 
 public class HashMapTest {
     public static void main(String[] args) {
-        HashMap map = new HashMap<>();
+        HashMap<String, Integer> map = new HashMap<>();
 
         map.put("user1", 90);
         map.put("user2", 80);

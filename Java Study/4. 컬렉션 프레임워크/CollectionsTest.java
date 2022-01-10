@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 
@@ -7,7 +6,7 @@ import static java.util.Collections.*;
 
 public class CollectionsTest {
     public static void main(String[] args) {
-        List list = new ArrayList();
+        List<Integer> list = new ArrayList<>();
         System.out.println("list = " + list);
 
         addAll(list, 1, 2, 3, 4, 5);
