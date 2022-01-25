@@ -46,7 +46,7 @@
 - 생성자를 호출하는 람다식도 메서드 참조로 변환할 수 있다.
 ```
 Supplier<MyClass> s = MyClass::new;
-<br>
+
 // 배열 생성
 Function<Integer, int[]> f = int[]::new;
 ```
@@ -139,7 +139,7 @@ long count = emptyStream.count(); // count = 0
 - 스트림의 요소가 배열이거나 map()의 연산 결과가 배열인 경우, 즉 Stream<T[]>인 경우, Stream<T>로 변환한다.
 - 드물지만, 스트림을 요소로 하는 스트림, 즉 스트림의 스트림을 하나의 스트림으로 합칠 때도 flatMap()을 사용한다.
 
----
+<br>
 
 ### reduce()
 - 스트림의 요소를 줄여간가면서 연산을 수행하고 최종결과를 반환한다.
@@ -161,7 +161,6 @@ List<MemberDTO> dtos = entities.stream()
                                 .collect(Collectors.toList());
 ```
 
----
 <br>
 
 ## 스트림을 컬렉션과 배열로 변환
