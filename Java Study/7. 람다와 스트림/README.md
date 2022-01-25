@@ -2,21 +2,25 @@
 - 람다식은 메서드를 하나의 식으로 표현한 것으로, 람다식으로 메서드의 역할을 대신할 수 있다.
 - 또한 람다식은 메서드의 매개변수로 전달되거나, 메서드의 결과로 반환될 수도 있어 메서드를 변수처럼 다루는 것이 가능하다.
 
-## 람다식 작성
+## 람다식 작성 규칙
 - 메서드에서 이름과 반환타입을 제거하고 매개변수 선언부와 몸통 {} 사이에 -> 를 추가한다.
 - 반환값이 있는 메서드의 경우, return 문 대신 식으로 대신할 수 있다.
 - 람다식에 선언된 매개변수의 타입은 추론이 가능한 경우 생략 가능하다.
 - 선언된 매개변수가 하나뿐인 경우에는 괄호 ()를 생략할 수 있지만, 매개변수의 타입이 있으면 생략할 수 없다.
 - 괄호 {} 안의 문장이 하나일 때는 괄호 {}를 생략할 수 있지만, return 문일 경우 생략할 수 없다.
+- 람다식 내에서 참조하는 지역변수는 final이 붙지 않았어도 상수로 간주된다.
 
 <br>
 
 ## 함수형 인터페이스
 - 람다식을 다루기 위한 인터페이스
 - 람다식과 인터페이스의 메서드가 1:1로 연결되어야 하므로, 함수형 인터페이스에는 오직 하나의 추상 메서드만 정의되어 있어야 한다.
-- static 메서드와 default 메서드의 개수에는 제약이 없다.
+- But, static 메서드와 default 메서드의 개수에는 제약이 없다.
 - java.util.function 패키지에 자주 쓰이는 형식의 메서드를 함수형 인터페이스로 정의해 놓았다.
 
+![img.png](img.png)
+
+<br>
 
 #### 람다식의 타입과 형변환
 - 함수형 인터페이스로 람다식을 참조할 수 있는 것일 뿐, 람다식의 타입과 함수형 인터페이스의 타입이 일치하는 것은 아니다.
@@ -24,11 +28,6 @@
 - 따라서, 대입 연산자의 양변의 타입을 일치시키기 위해 형변환이 필요하다.
 - 람다식이 함수형 인터페이스를 구현한 클래스의 객체와 동일한 경우, 형변환은 생략 가능하다.
   - But, Object 타입으로 형변환은 불가능하고 오직 함수형 인터페이스로만 형변환 가능하다.
-
-
-#### 외부 변수를 참조하는 람다식
-- 람다식 내에서 참조하는 지역변수는 final이 붙지 않았어도 상수로 간주된다.
-- 외부 지역변수와 같은 이름의 람다식 매개변수는 허용되지 않는다.
 
 <br>
 
@@ -40,12 +39,12 @@
 
 #### 생성자의 메서드 참조
 - 생성자를 호출하는 람다식도 메서드 참조로 변환할 수 있다.
-```java
+`
 Supplier<MyClass> s = MyClass::new;
-
+<br>
 // 배열 생성
 Function<Integer, int[]> f = int[]::new;
-```
+`
 
 <br>
 
@@ -118,7 +117,7 @@ long count = emptyStream.count(); // count = 0
 #### map()
 - 스트림의 요소에 저장된 값 중에서 원하는 필드만 뽑아내거나, 특정 형태로 변환해야 할때 사용한다.
 - 매개변수 T타입을 R타입으로 변환해서 반환하는 함수를 지정해야 한다.
-- `Stream<R> map(Function<? super T, ? extens R> mapper)`
+> Stream<R> map(Function<? super T, ? extens R> mapper)
 
 #### flatMap() - Stream<T[]>를 Stream<T>로 변환
 - 스트림의 요소가 배열이거나 map()의 연산 결과가 배열인 경우, 즉 Stream<T[]>인 경우, Stream<T>로 변환한다.
@@ -129,7 +128,7 @@ long count = emptyStream.count(); // count = 0
 #### reduce()
 - 스트림의 요소를 줄여간가면서 연산을 수행하고 최종결과를 반환한다.
 - 처음 두 요소를 가지고 연산한 결과를 가지고 그 다음 요소와 연산한다.
-- `Optional<T> reduce(BinaryOperator<T> accumulator)`
+> Optional<T> reduce(BinaryOperator<T> accumulator)
 
 <br>
 
@@ -137,6 +136,14 @@ long count = emptyStream.count(); // count = 0
 - 스트림의 요소를 수집하는 최종 연산으로 매개변수로 컬렉털르 필요로 한다.
   - 스트림의 요소를 어떻게 수집할 것인가를 정의한 것이 collector
 - 컬렉터는 Collector 인터페이스를 구현한 것으로, Collectors 클래스는 미리 작성된 다양한 종류의 컬렉터를 반환하는 static 메서드를 가지고 있다.
+
+```
+List<Member> entities = memberRepository.findAll();
+// 엔티티 리스트를 dto 리스트로 변환
+List<MemberDTO> dtos = entities.stream()
+                                .map(MemberDTO::new)
+                                .collect(Collectors.toList());
+```
 
 #### 스트림을 컬렉션과 배열로 변환
 - 스트림의 모든 요소를 컬렉션에 수집하려면, Collections 클래스의 toList()와 같은 메서드를 사용한다.
@@ -151,7 +158,6 @@ class Stream {
           .collect(Collectors.toMap(p -> p.getRegId(), p -> p));
 }
 ```
-
 
 - 스트림에 저장된 요소들을 T[] 타입의 배열로 변환하려면, toArray()를 사용하면 된다.
 - 해당 타입의 생성자 참조를 매개변수로 지정해주어야 하며, 지정하지 않으면 반환되는 배열의 타입은 Object[]이다.
