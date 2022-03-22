@@ -22,6 +22,9 @@
 - [X] week5 (12/28) 날짜와 시간 & 형식화 date, time and formatting
 - [X] week6 (1/4) 컬렉션 프레임워크
 - [X] week7 (1/11) 제네릭, 열거형, 어노테이션
+- [X] week8 (1/18) 람다와 스트림
+- [X] week9 (1/25) 입출력
+- [X] week7 (2/8) 
 
 <br><br>
 
